@@ -1,5 +1,8 @@
 // SF6_DriveImpactSphere.vert
-// Stable object-space mapping for a rotating sphere.
+// Drive Impact inspired stable sphere mapping:
+// - no vertex deformation to keep crack/ring masks coherent
+// - object-space direction pass-through for anchored projection
+// - world position exported for view/light shaping in fragment
 
 VARYING vec3 vDirOS;
 VARYING vec3 vWorldPos;

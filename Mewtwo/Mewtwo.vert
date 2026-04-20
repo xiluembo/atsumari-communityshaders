@@ -1,3 +1,10 @@
+// Mewtwo.vert
+// Mewtwo inspired "psychic cocoon" sphere deformation:
+// - angular swirl waves around the Y axis
+// - slow breathing pulse over radial displacement
+// - equator-weighted deformation profile
+// - phase channels exported for fragment color/stripe animation
+
 VARYING vec3 pos;
 VARYING vec2 vPhaseData;
 

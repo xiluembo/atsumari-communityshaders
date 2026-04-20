@@ -1,3 +1,9 @@
+// WavyStripes.vert
+// Single-axis wave deformation for stripe animation support:
+// - sinusoidal Y displacement driven by X position
+// - time-based phase animation for traveling waves
+// - slight radial push to keep sphere volume
+
 VARYING vec3 pos;
 void MAIN()
 {

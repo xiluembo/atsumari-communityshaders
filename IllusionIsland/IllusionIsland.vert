@@ -1,3 +1,10 @@
+// IllusionIsland.vert
+// Illusion Island inspired sphere deformation:
+// - spherical swirl + breathing radius modulation
+// - stronger displacement near the equator, softer near poles
+// - phase data generation for fragment palette animation
+// - stable object-space deformation for rotating meshes
+
 VARYING vec3 pos;
 VARYING vec2 vPhaseData;
 

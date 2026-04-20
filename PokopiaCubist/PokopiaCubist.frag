@@ -1,8 +1,9 @@
-// PokopiaCubist_ReliefMetal_v8.frag
-// - Pokopia-inspired palette: sky blue, mint, sunflower yellow, coral, aqua, lavender
-// - More pronounced color while staying soft/pastel
-// - Divider lines remain darker and slightly blue/lavender
-// - Saturation curve biased toward midtones
+// PokopiaCubist.frag
+// Pokopia-inspired cubist relief-metal sphere:
+// - sky/mint/sunflower/coral/aqua/lavender tile palette
+// - pronounced but soft-pastel color treatment
+// - darker blue-lavender divider ink and relief ridges
+// - midtone-biased saturation and gentle stylized grading
 // MAIN-only, no custom uniforms.
 
 VARYING vec3 vDirOS;

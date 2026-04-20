@@ -1,3 +1,11 @@
+// Mewtwo.frag
+// Mewtwo inspired psychic-energy sphere:
+// - 4-color Mewtwo palette cycle (body/tail/psy/aura)
+// - diagonal psychic stripes with stable per-band jitter
+// - soft center aura glow layered over transition colors
+// - metallic/specular tuning for energized surface response
+// MAIN-only, no custom uniforms.
+
 VARYING vec2 vPhaseData;
 
 float hash(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453); }

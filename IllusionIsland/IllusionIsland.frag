@@ -1,3 +1,11 @@
+// IllusionIsland.frag
+// Illusion Island inspired toon sphere:
+// - 4-color timed palette cycle (240s loop)
+// - stepped toon shading with dithered banding control
+// - anime-like specular + colored rim + ink-like edge darkening
+// - emissive-driven output for scene-light-independent look
+// MAIN-only, no custom uniforms.
+
 float hash(vec2 p) {
     return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453);
 }

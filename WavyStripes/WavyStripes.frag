@@ -1,3 +1,10 @@
+// WavyStripes.frag
+// Minimal animated stripe sphere:
+// - two-color horizontal stripe blend in UV space
+// - time-based phase scrolling for continuous stripe motion
+// - clean flat output focused on graphic contrast
+// MAIN-only, no custom uniforms.
+
 float hash(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453); }
 void MAIN()
 {

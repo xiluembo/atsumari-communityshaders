@@ -1,3 +1,10 @@
+// ZA.vert
+// Hex-voxelized sphere deformation with dominant-axis projection:
+// - cube-map-style dominant face selection per vertex normal
+// - pointy-top hex snapping on the active projection plane
+// - perpendicular-axis quantization for stepped voxel structure
+// - phase coordinates exported from active hex plane
+
 VARYING vec3 pos;
 VARYING vec2 vPhaseData;
 

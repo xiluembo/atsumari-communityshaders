@@ -1,3 +1,11 @@
+// Rainy.frag
+// Rainy mood metallic sphere:
+// - long-period stochastic dark/light surface toggling
+// - triangular time envelope controlling random threshold
+// - pulse-modulated contrast over base and accent colors
+// - simple PBR tuning for wet-metal look
+// MAIN-only, no custom uniforms.
+
 float hash(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453); }
 
 void MAIN()

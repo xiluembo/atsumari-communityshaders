@@ -1,5 +1,8 @@
 // SF6_InkSphere.vert
-// Stable object-space mapping for a rotating sphere.
+// SF6 ink-inspired stable sphere mapping:
+// - no deformation for clean graffiti block placement
+// - object-space direction pass-through for anchored UV projection
+// - world position exported for fragment shading terms
 
 VARYING vec3 vDirOS;
 VARYING vec3 vWorldPos;

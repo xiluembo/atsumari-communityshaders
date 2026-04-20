@@ -1,3 +1,9 @@
+// Rainy.vert
+// Multi-axis wave deformation for a turbulent sphere:
+// - sinusoidal displacement on X/Y/Z channels
+// - time-driven wobble with equal frequency per axis
+// - subtle radial push to preserve inflated silhouette
+
 VARYING vec3 pos;
 void MAIN()
 {

@@ -1,3 +1,11 @@
+// ZA.frag
+// ZA palette-cycle stripe sphere:
+// - 4-color timed transition loop with smooth easing
+// - diagonal stripe masking with stable per-band jitter
+// - persistent minimum stripe brightness to avoid full cutout
+// - metallic/specular response tuned for glossy look
+// MAIN-only, no custom uniforms.
+
 VARYING vec2 vPhaseData;
 
 float hash(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453); }

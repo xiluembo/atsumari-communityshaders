@@ -1,6 +1,9 @@
 // PokopiaCubist.vert
-// Stronger relief support: pass world position for derivative-based bump.
-// No time-based wobble (reduces shimmer on random rotation).
+// Pokopia-inspired cubist relief vertex stage:
+// - static faceting in direction space with softened transitions
+// - subtle per-facet geometric irregularity for handcrafted feel
+// - no time-based wobble to reduce shimmer under random rotation
+// - world position export for derivative-based bump in fragment
 
 VARYING vec3 vDirOS;
 VARYING vec3 vDirRawOS;

@@ -1,5 +1,8 @@
 // BellabelPark.vert
-// Stable object-space mapping for a sphere that already rotates externally.
+// Bellabel Park inspired stable sphere mapping:
+// - no geometric deformation (pattern stability first)
+// - object-space directions passed to fragment stage
+// - intended for meshes rotating externally in scene
 
 VARYING vec3 vDirOS;
 VARYING vec3 vWorldPos;

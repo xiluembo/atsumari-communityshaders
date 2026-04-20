@@ -1,6 +1,9 @@
 // TeraRaidCave.vert
-// Dark crystalline sphere for a Tera Raid cave look.
-// Stable in object space, so the pattern rotates naturally with the sphere.
+// Tera Raid cave inspired crystalline sphere deformation:
+// - static faceting with subtle per-facet irregularity
+// - displacement preserving spherical silhouette
+// - object-space stability so pattern rotates naturally with mesh
+// - world position output for relief normal reconstruction
 
 VARYING vec3 vDirOS;
 VARYING vec3 vDirRawOS;
