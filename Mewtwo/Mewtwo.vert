@@ -3,30 +3,30 @@ VARYING vec2 vPhaseData;
 
 void MAIN()
 {
-    vec3 p = VERTEX;       // posição original da malha
-    float r = length(p);   // raio original
+    vec3 p = VERTEX;       // original mesh position
+    float r = length(p);   // original radius
 
-    // normal aproximada (esfera centrada na origem)
+    // approximate normal (sphere centered at the origin)
     vec3 n = normalize(p);
 
-    // coordenadas esféricas
-    float theta = atan(p.z, p.x);               // [-pi, pi]   -> ângulo em torno do eixo Y
-    float phi   = acos(clamp(n.y, -1.0, 1.0)); // [0, pi]     -> 0 topo, pi fundo
+    // spherical coordinates
+    float theta = atan(p.z, p.x);               // [-pi, pi]   -> angle around the Y axis
+    float phi   = acos(clamp(n.y, -1.0, 1.0)); // [0, pi]     -> 0 top, pi bottom
 
-    // ===== deformação "casulo psíquico" =====
-    // equator ~1 no equador, ~0 nos polos
+    // ===== "psychic cocoon" deformation =====
+    // equator ~1 at the equator, ~0 at the poles
     float equator = sin(phi);
 
-    // ondas radiais girando em torno do eixo Y
-    // ANTES: sin(theta * 6.0 + uTime * 0.8);
-    float swirl = sin(theta * 6.0 + uTime * 0.4);   // ~4x mais lento
+    // radial waves rotating around the Y axis
+    // BEFORE: sin(theta * 6.0 + uTime * 0.8);
+    float swirl = sin(theta * 6.0 + uTime * 0.4);   // ~4x slower
 
-    // pulso lento no raio (respiração psíquica)
-    // ANTES: sin(uTime * 0.25);
-    float breathe = sin(uTime * 0.12);              // bem mais suave (~80s por ciclo)
+    // slow radius pulse (psychic breathing)
+    // BEFORE: sin(uTime * 0.25);
+    float breathe = sin(uTime * 0.12);              // much smoother (~80s per cycle)
 
-    // amplitude combinada: mais forte no equador, mais fraca nos polos
-    float amp = 0.08 * equator;        // ~8% do raio ao máximo
+    // combined amplitude: stronger at the equator, weaker at the poles
+    float amp = 0.08 * equator;        // ~8% of the radius at maximum
     float radialOffset = amp * swirl * (0.6 + 0.4 * breathe);
 
     float newR = r * (1.0 + radialOffset);
@@ -35,11 +35,11 @@ void MAIN()
 
     pos = deformed;
 
-    // ===== fase para o fragment shader =====
-    // vPhaseData.x: posição angular normalizada [0,1]
+    // ===== phase data for the fragment shader =====
+    // vPhaseData.x: normalized angular position [0,1]
     float theta01 = (theta / 6.28318530718) + 0.5;
 
-    // vPhaseData.y: banda “psíquica” que gira em torno do eixo Y
+    // vPhaseData.y: "psychic" band rotating around the Y axis
     float phaseY = n.y + 0.25 * sin(theta * 4.0 + uTime * 0.5);
     vPhaseData = vec2(theta01, phaseY);
 

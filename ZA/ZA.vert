@@ -1,11 +1,11 @@
 VARYING vec3 pos;
 VARYING vec2 vPhaseData;
 
-// ===== util =====
+// ===== utility =====
 float snap1D(float v, float s) { return floor(v / s + 0.5) * s; }
 
 // --------- HEX (axial/cube coords) ---------
-// Converte de cartesiano (x,z) -> axial (q,r) para orientação "pointy-top"
+// Convert Cartesian (x,z) -> axial (q,r) for "pointy-top" orientation
 vec2 cart_to_axial_pointy(vec2 p, float size) {
     float q = (1.7320508075688772 * 0.3333333333333 * p.x - 0.3333333333333 * p.y) / size;
     float r = (0.6666666666667 * p.y) / size;
@@ -32,48 +32,48 @@ vec2 hex_snap_pointy(vec2 xz, float size) {
     return axial_to_cart_pointy(ar, size);
 }
 
-// ===== escolha de face dominante (tipo cube-map) =====
+// ===== dominant face selection (cube-map style) =====
 int dominant_axis(vec3 n) {
     vec3 an = abs(n);
-    // Empate favorece Y para maior estabilidade vertical
-    if (an.x > an.y && an.x > an.z) return 0; // X-dominante -> plano YZ
-    if (an.y >= an.z)               return 1; // Y-dominante -> plano XZ
-    return 2;                                   // Z-dominante -> plano XY
+    // Tie-break favors Y for better vertical stability
+    if (an.x > an.y && an.x > an.z) return 0; // X-dominant -> YZ plane
+    if (an.y >= an.z)               return 1; // Y-dominant -> XZ plane
+    return 2;                                   // Z-dominant -> XY plane
 }
 
 void MAIN()
 {
     pos = VERTEX;
 
-    // ===== parâmetros =====
-    const float HEX_SIZE   = 6.0;   // “raio” do hex (ajuste conforme sua escala)
-    const float STEP_AXIS  = 3.0;   // quantização ao longo do eixo perpendicular ao plano escolhido
-    const float RADIUS_PUSH = 1.12; // empurrão sutil como no seu shader
+    // ===== parameters =====
+    const float HEX_SIZE   = 6.0;   // hex "radius" (adjust to your scale)
+    const float STEP_AXIS  = 3.0;   // quantization along the axis perpendicular to the selected plane
+    const float RADIUS_PUSH = 1.12; // subtle push like in your shader
 
-    // Para esfera centrada na origem, a normal ≈ posição normalizada.
-    // (Se estiver aplicando em outra geometria, troque por a NORMAL adequada transformada)
+    // For a sphere centered at the origin, normal ≈ normalized position.
+    // (If applied to other geometry, replace with the proper transformed NORMAL)
     vec3 n = normalize(pos);
 
     int face = dominant_axis(n);
 
     vec3 voxelPos;
-    vec2 phase; // para vPhaseData
+    vec2 phase; // for vPhaseData
     if (face == 0) {
-        // X-dominante: usar plano YZ e quantizar X
+        // X-dominant: use YZ plane and quantize X
         vec2 yz  = vec2(pos.y, pos.z);
         vec2 hYZ = hex_snap_pointy(yz, HEX_SIZE);
         float xq = snap1D(pos.x, STEP_AXIS);
         voxelPos = vec3(xq, hYZ.x, hYZ.y);
-        phase    = hYZ; // mantemos fase no plano ativo
+        phase    = hYZ; // keep phase in the active plane
     } else if (face == 1) {
-        // Y-dominante: usar plano XZ e quantizar Y
+        // Y-dominant: use XZ plane and quantize Y
         vec2 xz  = vec2(pos.x, pos.z);
         vec2 hXZ = hex_snap_pointy(xz, HEX_SIZE);
         float yq = snap1D(pos.y, STEP_AXIS);
         voxelPos = vec3(hXZ.x, yq, hXZ.y);
         phase    = hXZ;
     } else {
-        // Z-dominante: usar plano XY e quantizar Z
+        // Z-dominant: use XY plane and quantize Z
         vec2 xy  = vec2(pos.x, pos.y);
         vec2 hXY = hex_snap_pointy(xy, HEX_SIZE);
         float zq = snap1D(pos.z, STEP_AXIS);

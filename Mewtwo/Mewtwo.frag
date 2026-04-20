@@ -2,35 +2,35 @@ VARYING vec2 vPhaseData;
 
 float hash(vec2 p){ return fract(sin(dot(p, vec2(12.9898,78.233))) * 43758.5453); }
 
-// Jitter estável por faixa (ancorado no índice inteiro da stripe)
+// Stable per-band jitter (anchored to the stripe integer index)
 float stripe_jitter(float coord)
 {
-    // 'coord' é a coordenada contínua antes do fract; o inteiro identifica a stripe
+    // 'coord' is the continuous coordinate before fract; the integer identifies the stripe
     float k = floor(coord);
-    // hash em [-0,5, +0,5]
+    // hash in [-0.5, +0.5]
     return hash(vec2(k, 91.32)) - 0.5;
 }
 
 void MAIN()
 {
-    // ciclo completo de 240s => ~60s por transição
+    // full 240s cycle => ~60s per transition
     float t = fract((vPhaseData.y / 2.0 + uTime) / 240.0);
 
-    float seg  = t * 4.0;          // 4 segmentos
-    float fraq = fract(seg);       // posição dentro do segmento [0,1)
-    int   idx  = int(floor(seg));  // qual segmento (0..3)
+    float seg  = t * 4.0;          // 4 segments
+    float fraq = fract(seg);       // position inside the segment [0,1)
+    int   idx  = int(floor(seg));  // segment index (0..3)
 
-    // ===== Paleta Mewtwo =====
-    // Corpo claro lavanda
+    // ===== Mewtwo palette =====
+    // Light lavender body
     vec4 body   = vec4(0.890, 0.878, 0.949, 1.0); // #e3e0f2
-    // Cauda roxa
+    // Purple tail
     vec4 tail   = vec4(0.482, 0.173, 0.659, 1.0); // #7b2ca8
-    // Brilho psíquico magenta
+    // Magenta psychic glow
     vec4 psy    = vec4(1.0,   0.4,   1.0,   1.0); // #ff66ff
-    // Aura roxa profunda
+    // Deep purple aura
     vec4 aura   = vec4(0.235, 0.0,   0.427, 1.0); // #3c006d
 
-    // Ciclo de transição:
+    // Transition cycle:
     // body -> tail -> psy -> aura -> body ...
     vec4 c0, c1;
     if      (idx == 0) { c0 = body; c1 = tail; }
@@ -38,40 +38,40 @@ void MAIN()
     else if (idx == 2) { c0 = psy;  c1 = aura; }
     else               { c0 = aura; c1 = body; }
 
-    // Easing monotônico com derivada zero nas bordas
+    // Monotonic easing with zero derivative at the edges
     float w = 0.5 - 0.5 * cos(3.14159265 * fraq);
     vec4 mixColor = mix(c0, c1, w);
 
     vec2 vUV = UV0;
 
-    // ====== Stripes psíquicas com jitter ======
-    const float stripes   = 10.0;          // ligeiramente menos stripes que antes pra ficar mais “fluido”
-    const float phase     = uTime / 240.0; // mesma fase longa
-    const float gap       = 0.06;          // largura da fenda
-    const float jitterAmp = 0.20;          // jitter sutil
+    // ====== Psychic stripes with jitter ======
+    const float stripes   = 10.0;          // slightly fewer stripes than before for a more "fluid" look
+    const float phase     = uTime / 240.0; // same long phase
+    const float gap       = 0.06;          // gap width
+    const float jitterAmp = 0.20;          // subtle jitter
 
-    // stripes diagonais, como se fossem ondas psíquicas cruzando
+    // diagonal stripes, like crossing psychic waves
     float diagCoord = (vUV.x + vUV.y) * 0.5;
     float baseCoord = diagCoord * stripes + phase;
 
     float jitter = jitterAmp * stripe_jitter(baseCoord);
     float stripe = step(gap, fract(baseCoord + jitter));
 
-    // ===== Aura psíquica no centro =====
-    // Supondo UV em [0,1], criamos um leve glow no miolo
+    // ===== Central psychic aura =====
+    // Assuming UV in [0,1], create a soft center glow
     float d = distance(vUV, vec2(0.5, 0.5));
-    // quanto mais perto do centro, maior o glow
-    float auraFactor = smoothstep(0.7, 0.0, d); // 0 fora, ~1 no centro
+    // the closer to the center, the stronger the glow
+    float auraFactor = smoothstep(0.7, 0.0, d); // 0 outside, ~1 at the center
 
-    // mistura um pouco da cor "psy" conforme auraFactor
+    // blend in some "psy" color based on auraFactor
     vec4 auraColor = mix(mixColor, psy, 0.35 * auraFactor);
 
-    // intensidade base do material, stripes “apagando” um pouco
+    // base material intensity, with stripes dimming it slightly
     float stripeBrightness = mix(0.45, 1.0, stripe);
 
     BASE_COLOR = auraColor * stripeBrightness;
 
-    METALNESS        = 0.6;  // um pouco menos metálico que o verde original
-    SPECULAR_AMOUNT  = 0.8;  // brilho forte, cara de energia psíquica
-    ROUGHNESS        = 0.25; // ligeiramente mais liso
+    METALNESS        = 0.6;  // slightly less metallic than the original green
+    SPECULAR_AMOUNT  = 0.8;  // strong shine, psychic-energy feel
+    ROUGHNESS        = 0.25; // slightly smoother
 }

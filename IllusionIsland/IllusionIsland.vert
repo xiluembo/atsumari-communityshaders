@@ -3,19 +3,19 @@ VARYING vec2 vPhaseData;
 
 void MAIN()
 {
-    vec3 p = VERTEX;       // posição original da malha
-    float r = length(p);   // raio original
+    vec3 p = VERTEX;       // original mesh position
+    float r = length(p);   // original radius
 
     vec3 n = normalize(p);
 
-    float theta = atan(p.z, p.x);               // [-pi, pi]   -> ângulo em torno do eixo Y
-    float phi   = acos(clamp(n.y, -1.0, 1.0)); // [0, pi]     -> 0 topo, pi fundo
+    float theta = atan(p.z, p.x);               // [-pi, pi]   -> angle around the Y axis
+    float phi   = acos(clamp(n.y, -1.0, 1.0)); // [0, pi]     -> 0 top, pi bottom
 
     float equator = sin(phi);
 
-    float swirl = sin(theta * 4.0 + uTime * 0.4);   // ~4x mais lento
+    float swirl = sin(theta * 4.0 + uTime * 0.4);   // ~4x slower
 
-    float breathe = sin(uTime * 0.12);              // bem mais suave (~80s por ciclo)
+    float breathe = sin(uTime * 0.12);              // much smoother (~80s per cycle)
 
     float amp = 0.12 * equator;
     float radialOffset = amp * swirl * (0.6 + 0.4 * breathe);
