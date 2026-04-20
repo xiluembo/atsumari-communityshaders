@@ -1,0 +1,18 @@
+{
+  "name": "Bellabel Park Sphere",
+  "description": "Stylized park-themed sphere with flower patches, iridescent bubble rings, sparkles, and cheerful toon shading.",
+  "translations": [
+    {
+      "pt_BR": {
+        "name": "Esfera Bellabel Park",
+        "description": "Esfera estilizada com tema de parque, com áreas florais, anéis de bolha iridescentes, brilhos e sombreamento toon alegre."
+      }
+    }
+  ],
+  "license-spdx": "LGPL-3.0-or-later",
+  "author": {
+    "name": "Push X!",
+    "email": "pushx.br@gmail.com",
+    "website": "https://tinyurl.com/pushxlinks"
+  }
+}

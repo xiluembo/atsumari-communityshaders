@@ -1,0 +1,18 @@
+{
+  "name": "SF6 Drive Impact Sphere",
+  "description": "Street Fighter 6 Drive Impact inspired sphere with radial bursts, neon cracks, shock rings, and fluorescent paint accents over a dark base.",
+  "translations": [
+    {
+      "pt_BR": {
+        "name": "Esfera SF6 Drive Impact",
+        "description": "Esfera inspirada no Drive Impact de Street Fighter 6, com explosões radiais, rachaduras neon, anéis de choque e acentos fluorescentes sobre base escura."
+      }
+    }
+  ],
+  "license-spdx": "LGPL-3.0-or-later",
+  "author": {
+    "name": "Push X!",
+    "email": "pushx.br@gmail.com",
+    "website": "https://tinyurl.com/pushxlinks"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Pokopia Cubist Relief Sphere",
+  "description": "Cubist relief-metal sphere with pastel Pokopia-inspired palette, tiled panel divisions, stylized ridge shading, and soft graded reflections.",
+  "translations": [
+    {
+      "pt_BR": {
+        "name": "Esfera de Relevo Cubista Pokopia",
+        "description": "Esfera cubista com relevo metálico, paleta pastel inspirada em Pokopia, divisões em painéis, sombreamento estilizado de arestas e reflexos com gradação suave."
+      }
+    }
+  ],
+  "license-spdx": "LGPL-3.0-or-later",
+  "author": {
+    "name": "Push X!",
+    "email": "pushx.br@gmail.com",
+    "website": "https://tinyurl.com/pushxlinks"
+  }
+}
