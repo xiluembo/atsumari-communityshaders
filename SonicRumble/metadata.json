@@ -1,0 +1,18 @@
+{
+  "name": "Sonic Rumble",
+  "description": "Bright toy-plastic Sonic Rumble sphere with golden rings, checkerboard accents, star sparkles, and a glossy arcade finish.",
+  "translations": [
+    {
+      "pt_BR": {
+        "name": "Sonic Rumble",
+        "description": "Esfera inspirada em Sonic Rumble, com plástico de brinquedo azul, anéis dourados, xadrez, brilhos de estrela e acabamento arcade."
+      }
+    }
+  ],
+  "license-spdx": "LGPL-3.0-or-later",
+  "author": {
+    "name": "Push X!",
+    "email": "pushx.br@gmail.com",
+    "website": "https://tinyurl.com/pushxlinks"
+  }
+}

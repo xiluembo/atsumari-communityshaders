@@ -1,0 +1,18 @@
+{
+  "name": "Ultimate Chicken Horse",
+  "description": "Handcrafted toy-box sphere with grass, dirt, wood, and sky colors, hazard stripes, and a chunky silhouette.",
+  "translations": [
+    {
+      "pt_BR": {
+        "name": "Ultimate Chicken Horse",
+        "description": "Esfera artesanal de caixa de brinquedos, com grama, terra, madeira e céu, faixas de perigo e silhueta entalhada."
+      }
+    }
+  ],
+  "license-spdx": "LGPL-3.0-or-later",
+  "author": {
+    "name": "Push X!",
+    "email": "pushx.br@gmail.com",
+    "website": "https://tinyurl.com/pushxlinks"
+  }
+}

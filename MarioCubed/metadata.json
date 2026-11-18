@@ -1,0 +1,18 @@
+{
+  "name": "Mario Cubed",
+  "description": "Voxel-snapped sphere with flat cubic faces and a slight radial push. Color follows the profile base color.",
+  "translations": [
+    {
+      "pt_BR": {
+        "name": "Mario Cúbico",
+        "description": "Esfera quantizada em voxels, com faces cúbicas planas e um leve empurrão radial. A cor segue a cor base do perfil."
+      }
+    }
+  ],
+  "license-spdx": "LGPL-3.0-or-later",
+  "author": {
+    "name": "Push X!",
+    "email": "pushx.br@gmail.com",
+    "website": "https://tinyurl.com/pushxlinks"
+  }
+}

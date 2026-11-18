@@ -1,0 +1,18 @@
+{
+  "name": "Temple of Time",
+  "description": "Ocarina of Time relic sphere of mossy stone, emerald enamel, and gilded Temple of Time engravings, with Triforce inlays and Navi-blue glows.",
+  "translations": [
+    {
+      "pt_BR": {
+        "name": "Templo do Tempo",
+        "description": "Esfera-relíquia de Ocarina of Time, em pedra musgosa, esmalte esmeralda e gravuras douradas do Templo do Tempo, com incrustações da Triforce e brilhos azul-Navi."
+      }
+    }
+  ],
+  "license-spdx": "LGPL-3.0-or-later",
+  "author": {
+    "name": "Push X!",
+    "email": "pushx.br@gmail.com",
+    "website": "https://tinyurl.com/pushxlinks"
+  }
+}

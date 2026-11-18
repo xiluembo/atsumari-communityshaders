@@ -1,0 +1,18 @@
+{
+  "name": "Mina the Hollower",
+  "description": "Dark 8-bit gothic sphere with symmetrical surface relief, pixelated shading, and an exact 60-second cycle.",
+  "translations": [
+    {
+      "pt_BR": {
+        "name": "Mina the Hollower",
+        "description": "Esfera gótica de 8 bits, com relevo simétrico, sombreamento pixelado e ciclo exato de 60 segundos."
+      }
+    }
+  ],
+  "license-spdx": "LGPL-3.0-or-later",
+  "author": {
+    "name": "Push X!",
+    "email": "pushx.br@gmail.com",
+    "website": "https://tinyurl.com/pushxlinks"
+  }
+}

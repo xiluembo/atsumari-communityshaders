@@ -1,0 +1,18 @@
+{
+  "name": "Zelda AOI Pulse",
+  "description": "Wavy sphere pulsing between the profile base color and a deep green accent.",
+  "translations": [
+    {
+      "pt_BR": {
+        "name": "Pulso Zelda AOI",
+        "description": "Esfera ondulada que pulsa entre a cor base do perfil e um acento verde-escuro."
+      }
+    }
+  ],
+  "license-spdx": "LGPL-3.0-or-later",
+  "author": {
+    "name": "Push X!",
+    "email": "pushx.br@gmail.com",
+    "website": "https://tinyurl.com/pushxlinks"
+  }
+}

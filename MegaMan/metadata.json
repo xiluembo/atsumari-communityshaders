@@ -1,0 +1,18 @@
+{
+  "name": "Mega Man Armor",
+  "description": "Slightly polygonal blue armor sphere with pixelated Mega Buster shots, panel seams, and stronger metallic reflections.",
+  "translations": [
+    {
+      "pt_BR": {
+        "name": "Armadura Mega Man",
+        "description": "Esfera de armadura azul levemente poligonal, com disparos pixelados de Mega Buster, emendas de painel e reflexos metálicos mais fortes."
+      }
+    }
+  ],
+  "license-spdx": "LGPL-3.0-or-later",
+  "author": {
+    "name": "Push X!",
+    "email": "pushx.br@gmail.com",
+    "website": "https://tinyurl.com/pushxlinks"
+  }
+}
